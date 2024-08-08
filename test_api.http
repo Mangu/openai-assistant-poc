@@ -1,0 +1,17 @@
+ 
+POST http://127.0.0.1:8000/thread
+Content-Type: application/json
+access_token: 468967e70df24bebb3f94b50816c8dee
+
+###  
+  
+POST http://127.0.0.1:8000/message
+Content-Type: application/json
+access_token: 468967e70df24bebb3f94b50816c8dee
+
+{
+    "message": "email me a summary of the this conversation to ddiaz@live.com - thread_id: thread_7s1al1zJfA4UAOETMJR5HpBd",
+    "thread_id": "thread_7s1al1zJfA4UAOETMJR5HpBd"
+}
+
+###

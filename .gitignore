@@ -1,0 +1,10 @@
+/files
+/.tmp
+/env
+.env
+/.vs
+/tmp
+/__pycache__
+app.log
+/functions/__pycache__
+.log
