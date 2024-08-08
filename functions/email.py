@@ -12,7 +12,7 @@ handler = logging.FileHandler('app.log')
 logger.addHandler(handler)
 logger.setLevel(logging.INFO)
 
-def send_summary(email_address, thread_id):
+def send_report(email_address, thread_id):
     load_dotenv(".env")
 
     logger.info(f"Sending email for thread_id: {thread_id} to {email_address}")

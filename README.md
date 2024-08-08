@@ -23,7 +23,7 @@ By following the steps outlined in this notebook, you can quickly create or modi
 
 This is a test harness for the assistant. Make sure you have the correct assistant ID in the second cell of the notebook. It allows you to test the assistant configuration right from a notebook.
 
-### FastAPI.py
+### rest_api.py
 
 This is the REST API for the assistant which uses the "Fast" framework and the asistant APIs. The assistant ID is configured on line 18 of the code.
 

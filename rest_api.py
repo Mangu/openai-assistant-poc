@@ -7,10 +7,9 @@ import json
 from pydantic import BaseModel
 import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
-from functions.company import get_company_info
-from functions.news import get_news
-from functions.stock import get_stock_info
-from functions.email import send_summary
+from functions.patient import get_patient_information
+from functions.patient import get_patient_chart
+from functions.email import send_report
 from dotenv import load_dotenv
 import logging
 
