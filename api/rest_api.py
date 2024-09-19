@@ -22,7 +22,7 @@ logger.setLevel(logging.INFO)
 
 load_dotenv(".env")
 
-assistant_id = "asst_5N02i9PqB3VVqUYSAbkm76WH"
+assistant_id = "asst_bLvSlz40u6JfYR30LpRDqLTe"
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
@@ -74,7 +74,8 @@ class ThreadResponse(BaseModel):
     thread_id: str
 
 #add the available functions here   
-available_functions = {"get_company_info": get_company_info, "get_news": get_news, "get_stock_info": get_stock_info, "send_summary": send_summary}
+available_functions = {"get_patient_information": get_patient_information, "get_patient_chart": get_patient_chart, "send_report": send_report}
+
 def main_loop(run, thread_id):
 
     max_steps = 100

@@ -25,6 +25,8 @@ This is a test harness for the assistant. Make sure you have the correct assista
 
 ### rest_api.py
 
+NOTE: A docker file is included for the api app. Simply build the image and run it locally or in the cloud.
+
 This is the REST API for the assistant which uses the "Fast" framework and the asistant APIs. The assistant ID is configured on line 18 of the code.
 
 The API consists of two endpoints: `/thread` and `/message`. The `/thread` endpoint should be called first to initiate a thread (session) with the assistant. Once the thread is established, you can use the `/message` endpoint to send questions to the assistant and receive answers in response.
