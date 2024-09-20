@@ -1,3 +1,4 @@
+
 # Overview
 
 This repository showcases the power of the Azure OpenAI Assistant API by providing a robust implementation of a cutting-edge AI agent. Our goal is to help you accelerate the creation of a compelling proof of concept that demonstrates the immense value of AI solutions. With this solid foundation, you can seamlessly transition to a pilot or even a minimum viable product, ensuring a smooth path towards success.
