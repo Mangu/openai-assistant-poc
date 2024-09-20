@@ -1,7 +1,8 @@
+> **_NOTE:_** I use this repo to help get a PoC started. I dont provide detail docs on this repo at this time. Once I get all the features completed, I will do a video to provide more details. The infomation bellow should get you started. 
 
 # Overview
 
-This repository showcases the power of the Azure OpenAI Assistant API by providing a robust implementation of a cutting-edge AI agent. Our goal is to help you accelerate the creation of a compelling proof of concept that demonstrates the immense value of AI solutions. With this solid foundation, you can seamlessly transition to a pilot or even a minimum viable product, ensuring a smooth path towards success.
+This repository showcases the power of the Azure OpenAI Assistant API by providing an implementation of an AI agent. Our goal is to help you accelerate the creation of a compelling proof of concept that demonstrates the immense value of AI solutions.
 
 ## Getting Started with Azure OpenAI Assistant
 
@@ -28,7 +29,7 @@ This is a test harness for the assistant. Make sure you have the correct assista
 
 ### rest_api.py
 
-NOTE: A docker file is included for the api app. Simply build the image and run it locally or in the cloud.
+> **_NOTE:_**  A docker file is included for the api app. Simply build the image and run it locally or in the cloud.
 
 This is the REST API for the assistant which uses the "Fast" framework and the asistant APIs. The assistant ID is configured on line 18 of the code.
 
@@ -55,6 +56,6 @@ ssh -R 80:127.0.0.1:8000 serveo.net
 
 ## Web App
 
-NOTE: A docker file is included for the api app. Simply build the image and run it locally or in the cloud.
+> **_NOTE:_**  A docker file is included for the api app. Simply build the image and run it locally or in the cloud.
 
 A simple chat client built on VUEJS. More info available in the readme file under /web
