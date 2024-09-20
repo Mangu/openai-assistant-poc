@@ -24,6 +24,8 @@ By following the steps outlined in this notebook, you can quickly create or modi
 
 This is a test harness for the assistant. Make sure you have the correct assistant ID in the second cell of the notebook. It allows you to test the assistant configuration right from a notebook.
 
+## Fast API App
+
 ### rest_api.py
 
 NOTE: A docker file is included for the api app. Simply build the image and run it locally or in the cloud.
@@ -51,5 +53,8 @@ You can open the port transferring by running `ssh -R 80:127.0.0.1:8000 serveo.n
 
 ssh -R 80:127.0.0.1:8000 serveo.net
 
-### Sample Questions
+## Web App
 
+NOTE: A docker file is included for the api app. Simply build the image and run it locally or in the cloud.
+
+A simple chat client built on VUEJS. More info available in the readme file under /web
