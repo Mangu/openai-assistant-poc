@@ -36,6 +36,8 @@ export default {
   async postMessage(message, thread_id) {
     console.log("key: " + key);
     console.log("endpoint: " + endpoint);
+    console.log("thread: " + message);
+    console.log("message: " + endpoint);
     
     try {
       const response = await instance.post(endpoint+"/message",

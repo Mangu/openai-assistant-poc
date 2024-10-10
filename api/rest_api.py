@@ -10,6 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from functions.patient import get_patient_information
 from functions.patient import get_patient_chart
 from functions.email import send_report
+from functions.reviewer import review_chart
 from dotenv import load_dotenv
 import logging
 
@@ -22,7 +23,7 @@ logger.setLevel(logging.INFO)
 
 load_dotenv(".env")
 
-assistant_id = "asst_bLvSlz40u6JfYR30LpRDqLTe"
+assistant_id = os.getenv("ASSISTANT_ID")
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
@@ -74,7 +75,7 @@ class ThreadResponse(BaseModel):
     thread_id: str
 
 #add the available functions here   
-available_functions = {"get_patient_information": get_patient_information, "get_patient_chart": get_patient_chart, "send_report": send_report}
+available_functions = {"get_patient_information": get_patient_information, "get_patient_chart": get_patient_chart, "send_report": send_report, "review_chart": review_chart}   
 
 def main_loop(run, thread_id):
 
@@ -134,9 +135,8 @@ async def message(item: MessageRequest, api_key: APIKey = Depends(get_api_key)):
         thread_id=item.thread_id,
         assistant_id=assistant_id # use the assistant id defined aboe
     )
-
     run = main_loop(run, item.thread_id)
-
+    
     if run.status == 'completed':
         messages = client.beta.threads.messages.list(limit=1, thread_id=item.thread_id)
         messages_json = json.loads(messages.model_dump_json())

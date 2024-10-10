@@ -20,7 +20,7 @@
     <div class="button-container">
       <button @click="sendMessage" class="btn btn-primary">Go</button>
       <button @click="clearMessage" class="btn btn-primary">Clear</button>
-      <button @click="showModal=true" class="btn btn-primary">Add File</button>
+      <!--<button @click="showModal=true" class="btn btn-primary">Add File</button>-->
       <button @click="getThread" class="btn btn-primary">New Thread</button>
       <div class="status-container">{{ status }}</div>
     </div>
