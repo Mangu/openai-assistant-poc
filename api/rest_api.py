@@ -16,9 +16,18 @@ import logging
 
 # Create a custom logger
 logger = logging.getLogger(__name__)
-# Create a file handler
-handler = logging.FileHandler('app.log')
-logger.addHandler(handler)
+
+# Create a console handler
+console_handler = logging.StreamHandler()
+
+# Create a logging format
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+console_handler.setFormatter(formatter)
+
+# Add the console handler to the logger
+logger.addHandler(console_handler)
+
+# Set the logging level
 logger.setLevel(logging.INFO)
 
 load_dotenv(".env")
@@ -88,6 +97,7 @@ def main_loop(run, thread_id):
             run = client.beta.threads.runs.retrieve(thread_id=thread_id, run_id=run.id)        
             cnt += 1
             if run.status == "requires_action":
+                print(run.status)
                 tool_responses = []
                 if (run.required_action.type == "submit_tool_outputs" and run.required_action.submit_tool_outputs.tool_calls is not None):
                     tool_calls = run.required_action.submit_tool_outputs.tool_calls
@@ -100,7 +110,7 @@ def main_loop(run, thread_id):
                             function_to_call = available_functions[call.function.name]                            
                             tool_response = function_to_call(**json.loads(call.function.arguments))                           
                             tool_responses.append({"tool_call_id": call.id, "output": tool_response})
-                            
+                            print(f"Function name for thread_id: {thread_id} and run_id: {run.id}: {call.function.name}")
                             logger.info(f"Function name for thread_id: {thread_id} and run_id: {run.id}: {call.function.name}") 
                             logger.info(f"Function args for thread_id: {thread_id} and run_id: {run.id}: {call.function.arguments}")  
                             
@@ -135,6 +145,7 @@ async def message(item: MessageRequest, api_key: APIKey = Depends(get_api_key)):
         thread_id=item.thread_id,
         assistant_id=assistant_id # use the assistant id defined aboe
     )
+    print(run.status)
     run = main_loop(run, item.thread_id)
     
     if run.status == 'completed':
@@ -144,7 +155,7 @@ async def message(item: MessageRequest, api_key: APIKey = Depends(get_api_key)):
         text = message_content[0].get('text', {}).get('value')
         return MessageResponse(message=text)
     else:
-        return MessageResponse(message="Assistant reported an error.")
+        return MessageResponse(message=run.status)
 
 
 @app.post("/thread/", response_model=ThreadResponse)

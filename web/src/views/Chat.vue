@@ -10,7 +10,7 @@
     <div v-if="isSending" class="thinking-animation">Thinking...</div>
       <div class="messages" ref="messages">
         <div v-for="(message, index) in messages" :key="index" :class="`chat-bubble ${message.sender}`">
-          <p v-html="message.text"></p>
+          <p v-html="message.text" class="no-wrap"></p>
           <span class="sender">{{ message.sender }}</span>
         </div>
       </div>    
@@ -127,6 +127,9 @@
     margin: 10px 0;
     position: relative;
     color: #000000;
+  }
+  .no-wrap {
+    white-space: pre-wrap;
   }
   .sender {
     font-size: 0.8em;
