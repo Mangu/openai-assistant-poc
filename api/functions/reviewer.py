@@ -10,6 +10,8 @@ handler = logging.FileHandler('app.log')
 logger.addHandler(handler)
 logger.setLevel(logging.INFO)
 
+load_dotenv(".env")
+
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2024-07-01-preview",

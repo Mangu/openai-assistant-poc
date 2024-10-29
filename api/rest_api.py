@@ -11,6 +11,7 @@ from functions.patient import get_patient_information
 from functions.patient import get_patient_chart
 from functions.email import send_report
 from functions.reviewer import review_chart
+from functions.protocol import search_protocol
 from dotenv import load_dotenv
 import logging
 
@@ -84,7 +85,7 @@ class ThreadResponse(BaseModel):
     thread_id: str
 
 #add the available functions here   
-available_functions = {"get_patient_information": get_patient_information, "get_patient_chart": get_patient_chart, "send_report": send_report, "review_chart": review_chart}   
+available_functions = {"get_patient_information": get_patient_information, "get_patient_chart": get_patient_chart, "send_report": send_report, "review_chart": review_chart, "search_protocol": search_protocol}   
 
 def main_loop(run, thread_id):
 

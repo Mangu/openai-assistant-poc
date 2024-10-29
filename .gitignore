@@ -9,4 +9,5 @@ app.log
 /functions/__pycache__
 .log
 /node_modules
-.env
+.venv
+/.venv

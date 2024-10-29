@@ -10,14 +10,13 @@ handler = logging.FileHandler('app.log')
 logger.addHandler(handler)
 logger.setLevel(logging.INFO)
 
-def search_protocol(question: str): 
-    load_dotenv(".env")
-    #url = os.getenv("BLS_API_ENDPOINT") 
-    url ="https://pa-bls-mxvxk.swedencentral.inference.ml.azure.com/score"   
-    #api_key = os.getenv("BLS_API_KEY")
-    api_key = "vr0NrTVEFSADqR5AeDlDR0tR1flT6xfd"
-    
+load_dotenv(".env")
 
+def search_protocol(question: str): 
+    
+    url = os.getenv("BLS_API_ENDPOINT")        
+    api_key = os.getenv("BLS_API_KEY") 
+    
     print(api_key)
         
     headers = {
