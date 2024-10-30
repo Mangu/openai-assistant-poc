@@ -1,6 +1,7 @@
 import os
 import requests
 import logging
+import json
 from dotenv import load_dotenv
 
 # Create a custom logger
@@ -34,9 +35,20 @@ def search_protocol(question: str):
 
     if response.status_code == 200:
         data = response.json()
-        msg = data
-        logger.info(f"Searching for {question} found: {data}")      
-        return msg
+
+        # Check if 'documents' and 'reply' keys exist
+        if "documents" in data and "reply" in data:
+            documents = data["documents"]
+            # Extract file paths and reply
+            file_paths = [doc["filepath"] for doc in documents]
+            reply = data["reply"]
+
+            # Concatenate file paths and reply into a single string
+            result = "\n references: ".join(file_paths) + " \n response: " + reply
+            logger.info(f"Searching for {question} found: {data}")
+            return result
+        else:
+            result = "Error: 'documents' or 'reply' key not found in the JSON response."
     else:
-        logger.info(f"Searching for {question} not found") 
-        return "No data found" 
+        logger.info(f"Searching for {question} not found")
+        result = "No data found"
