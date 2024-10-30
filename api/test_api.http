@@ -10,7 +10,7 @@ Content-Type: application/json
 access_token: 468967e70df24bebb3f94b50816c8dee
 
 {
-    "message": "",
+    "message": "hello",
     "thread_id": "thread_UZG7ezqvphCleWHfgyffVABY"
 }
 

@@ -58,7 +58,7 @@
 
         try 
         {
-          response = await assistantService.postMessage(message + ' thread_id: ' + this.thread, this.thread);
+          response = await assistantService.postMessage(message, this.thread);
           
           if (response == null) {
             response = "Sorry, I'm having trouble communicating with the assistant. Create a new thread and try again.";

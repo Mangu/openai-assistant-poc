@@ -12,6 +12,8 @@ logger.setLevel(logging.INFO)
 
 load_dotenv(".env")
 
+print("got here")
+
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
     api_version="2024-07-01-preview",
