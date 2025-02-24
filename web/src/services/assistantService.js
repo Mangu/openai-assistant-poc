@@ -52,7 +52,7 @@ export default {
           },
         }
       );
-        const messageText = response.data.message.replace(/\n/g, '');
+        const messageText = response.data.message;
         return messageText;
     } catch (error) {
         console.error('Failed to post message:', error);

@@ -1,17 +1,17 @@
  
-POST http://127.0.0.1:8432/thread
+POST https://ems-buddy-api--lv67ut4.happyglacier-7bf8535a.eastus.azurecontainerapps.io/thread
 Content-Type: application/json
 access_token: 468967e70df24bebb3f94b50816c8dee
 
 ###  
   
-POST http://127.0.0.1:8432/message
+POST http://ems-buddy-api.happyglacier-7bf8535a.eastus.azurecontainerapps.io/message
 Content-Type: application/json
 access_token: 468967e70df24bebb3f94b50816c8dee
 
 {
     "message": "hello",
-    "thread_id": "thread_UZG7ezqvphCleWHfgyffVABY"
+    "thread_id": "thread_acqO2NPlynAuMMDePNT9UH0c"
 }
 
 ###
